@@ -39,11 +39,14 @@ async def main():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     uvloop.install()
-    #Device.pin_factory = PiGPIOFactory(host=None, port=None)
-    Device.pin_factory = MockFactory()
+    Device.pin_factory = PiGPIOFactory(host="192.168.0.90", port=22)
+    #Device.pin_factory = MockFactory()
     try:
         main(debug=True)
     finally:
         if not Device.pin_factory is None:
-            Device.pin_factory.close()
+            try:
+                Device.pin_factory.close()
+            except:
+                pass
     
