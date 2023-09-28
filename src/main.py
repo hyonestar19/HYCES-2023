@@ -22,7 +22,8 @@ import purify as pr
 async def main():    
     logger = logging.getLogger().getChild("command")
     ######### START USER DEFINED PY ########
-    pr.main()
+    
+    pr.main(True)
 
 
     ##### END OF THE USER DEFINED PY #####
