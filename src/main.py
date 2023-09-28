@@ -28,7 +28,7 @@ async def main():
     myMessage = pr.main(True)
     print(myMessage)
     time.sleep(1) ## Time Delay 고려
-    myFlag = fg.main(20, "TURBIN")
+    myFlag = fg.main(1, "TURBIN")
     print(myFlag)
     time.sleep(1)
     myNewMessage = pr.main(False)
