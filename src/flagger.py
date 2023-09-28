@@ -17,7 +17,7 @@ def main(MINUTES, pNAME):
     ## Calc Minutes
     while(MINUTES != 0):
         MINUTES -= 1
-        time.sleep(1)
+        time.sleep(60)
     
     flag = pNAME + "'s timer is done"
     return flag

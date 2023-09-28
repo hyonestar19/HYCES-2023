@@ -17,9 +17,11 @@ def main(ISTURBINWORK):
         if(ISTURBINWORK): # 터빈이 움직여야 할 때
             msg = "Turbin is working for 20 minutes."
             TURBIN.on()
+            print("Turbin on!!")
             
         else: # 터빈이 멈출 때
             msg = "Turbin turns off."
             TURBIN.off()
+            print("Turbin off!!")
 
     return msg

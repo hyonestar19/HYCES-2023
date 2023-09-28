@@ -16,6 +16,8 @@ from gpiozero.pins.mock import MockFactory
 
 # import module
 import purify as pr
+import time
+import flagger as fg
 
 
 @ApplicationMain
@@ -23,8 +25,15 @@ async def main():
     logger = logging.getLogger().getChild("command")
     ######### START USER DEFINED PY ########
     
-    pr.main(True)
-
+    myMessage = pr.main(True)
+    print(myMessage)
+    time.sleep(1) ## Time Delay 고려
+    myFlag = fg.main(20, "TURBIN")
+    print(myFlag)
+    time.sleep(1)
+    myNewMessage = pr.main(False)
+    print(myNewMessage)
+    time.sleep(1)
 
     ##### END OF THE USER DEFINED PY #####
     await commands.run_command(None)
