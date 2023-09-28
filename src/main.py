@@ -14,11 +14,18 @@ from gpiozero.devices import Device
 from gpiozero.pins.pigpio import PiGPIOFactory
 from gpiozero.pins.mock import MockFactory
 
+# import module
+import purify as pr
+
 
 @ApplicationMain
 async def main():    
     logger = logging.getLogger().getChild("command")
+    ######### START USER DEFINED PY ########
+    pr.main()
 
+
+    ##### END OF THE USER DEFINED PY #####
     await commands.run_command(None)
     async for message in stdconsole.input_sequence():
         if message == 'exit':
@@ -39,7 +46,7 @@ async def main():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     uvloop.install()
-    Device.pin_factory = PiGPIOFactory(host="192.168.0.90", port=22)
+    Device.pin_factory = PiGPIOFactory(host='192.168.0.90')
     #Device.pin_factory = MockFactory()
     try:
         main(debug=True)
